@@ -35,6 +35,7 @@ for file in os.listdir():
 # Crear página principal personalizada
 with open("docs/index.html", "w", encoding="utf-8") as f:
     f.write("""
+
 <!DOCTYPE html>
 <html lang="es">
 
