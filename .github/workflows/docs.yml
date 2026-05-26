@@ -26,21 +26,21 @@ jobs:
         python -m pip install --upgrade pip
         pip install django pillow
 
-    - name: Generate Pydoc
+    - name: Generate documentation
       run: |
         mkdir docs
 
-        pydoc -w manage
+        python -m pydoc -w manage
         mv manage.html docs/index.html
 
-        pydoc -w blog/models.py
-        mv models.html docs/
+        python -m pydoc -w blog.apps
+        mv blog.apps.html docs/
 
-        pydoc -w blog/views.py
-        mv views.html docs/
+        python -m pydoc -w blog.admin
+        mv blog.admin.html docs/
 
-        pydoc -w blog/urls.py
-        mv urls.html docs/
+        python -m pydoc -w blog.urls
+        mv blog.urls.html docs/
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
