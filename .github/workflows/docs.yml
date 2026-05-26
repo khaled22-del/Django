@@ -23,8 +23,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install django
-        pip install pillow
+        python -m pip install --upgrade pip
+        pip install django pillow
 
     - name: Generate Pydoc
       env:
@@ -32,16 +32,16 @@ jobs:
       run: |
         mkdir docs
 
-        pydoc -w manage
+        python -m pydoc -w manage
         mv manage.html docs/index.html
 
-        pydoc -w blog.models
+        python -m pydoc -w blog.models
         mv blog.models.html docs/
 
-        pydoc -w blog.views
+        python -m pydoc -w blog.views
         mv blog.views.html docs/
 
-        pydoc -w blog.urls
+        python -m pydoc -w blog.urls
         mv blog.urls.html docs/
 
     - name: Deploy to GitHub Pages
