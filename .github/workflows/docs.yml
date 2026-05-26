@@ -1,4 +1,4 @@
-name: Generate Pydoc Documentation
+name: Generate Django Documentation
 
 on:
   push:
@@ -24,21 +24,21 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install django pillow
+        pip install django django-extensions pillow
 
-    - name: Configure Django
-      run: |
-        export DJANGO_SETTINGS_MODULE=my_site.settings
-        python -c "import django; django.setup()"
-
-    - name: Generate Pydoc
+    - name: Generate documentation
       env:
         DJANGO_SETTINGS_MODULE: my_site.settings
       run: |
         mkdir docs
 
+        python manage.py shell -c "import django; django.setup()"
+
         python -m pydoc -w manage
         mv manage.html docs/index.html
+
+        python -m pydoc -w blog.apps
+        mv blog.apps.html docs/
 
         python -m pydoc -w blog.models
         mv blog.models.html docs/
@@ -48,12 +48,6 @@ jobs:
 
         python -m pydoc -w blog.urls
         mv blog.urls.html docs/
-
-        python -m pydoc -w blog.apps
-        mv blog.apps.html docs/
-
-        python -m pydoc -w blog.admin
-        mv blog.admin.html docs/
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
