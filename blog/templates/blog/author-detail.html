@@ -1,0 +1,56 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}
+{{ author.first_name }}
+{% endblock %}
+
+{% block content %}
+
+<section id="author-detail">
+
+    <div class="author-info">
+
+        <h1>
+            Detalls de l'Autor
+        </h1>
+
+        <p>
+            <strong>Nom:</strong>
+            {{ author.first_name }}
+        </p>
+
+        <p>
+            <strong>Cognom:</strong>
+            {{ author.last_name }}
+        </p>
+
+        <p>
+            <strong>Adreça:</strong>
+            {{ author.email }}
+        </p>
+
+    </div>
+
+    <div class="author-posts">
+
+        <h2>
+            Posts publicats per
+            {{ author.first_name }} {{ author.last_name }}
+        </h2>
+
+        <div class="posts-container">
+
+            {% for post in author.posts.all %}
+
+                {% include "blog/includes/post.html" %}
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

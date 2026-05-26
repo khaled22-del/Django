@@ -1,0 +1,100 @@
+[
+  {
+    "model": "blog.author",
+    "pk": 1,
+    "fields": {
+      "first_name": "Clara",
+      "last_name": "Pons",
+      "email": "clara@gmail.com"
+    }
+  },
+
+  {
+    "model": "blog.author",
+    "pk": 2,
+    "fields": {
+      "first_name": "Marc",
+      "last_name": "Serra",
+      "email": "marc@gmail.com"
+    }
+  },
+
+  {
+    "model": "blog.author",
+    "pk": 3,
+    "fields": {
+      "first_name": "Anna",
+      "last_name": "Vidal",
+      "email": "anna@gmail.com"
+    }
+  },
+
+  {
+    "model": "blog.tag",
+    "pk": 1,
+    "fields": {
+      "caption": "Python"
+    }
+  },
+
+  {
+    "model": "blog.tag",
+    "pk": 2,
+    "fields": {
+      "caption": "Django"
+    }
+  },
+
+  {
+    "model": "blog.tag",
+    "pk": 3,
+    "fields": {
+      "caption": "Web"
+    }
+  },
+
+  {
+    "model": "blog.post",
+    "pk": 1,
+    "fields": {
+      "title": "Primer Post",
+      "excerpt": "Aquest és el resum del primer post",
+      "image_name": "post2.jpeg",
+      "slug": "primer-post",
+      "content": "Aprendre Django és una gran oportunitat per entendre com es desenvolupen aplicacions web professionals. Amb Django podem treballar amb plantilles HTML, gestionar usuaris, crear sistemes d'autenticació i connectar-nos fàcilment amb bases de dades SQL. A més, segueix el patró MTV que ajuda a mantenir el codi organitzat i escalable.",
+      "date": "2025-05-25",
+      "author": 1,
+      "tags": [1, 2]
+    }
+  },
+
+  {
+    "model": "blog.post",
+    "pk": 2,
+    "fields": {
+      "title": "Aprendre Django",
+      "excerpt": "Aprendre Django és molt útil",
+      "image_name": "django1.jpeg",
+      "slug": "aprendre-django",
+      "content": "Django és un framework desenvolupat amb Python que permet crear aplicacions web de manera ràpida i segura. Aquest projecte està enfocat a aprendre els conceptes principals del framework com models, templates, URLs, views i gestió de bases de dades. Django incorpora moltes eines integrades que faciliten el desenvolupament modern d'aplicacions web.",
+      "date": "2025-05-26",
+      "author": 2,
+      "tags": [2, 3]
+    }
+  },
+
+  {
+    "model": "blog.post",
+    "pk": 3,
+    "fields": {
+      "title": "Python Web",
+      "excerpt": "Python facilita el desenvolupament web",
+      "image_name": "post3.jpeg",
+      "slug": "python-web",
+      "content": "Python és un dels llenguatges més utilitzats actualment en el desenvolupament web gràcies a la seva simplicitat i llegibilitat. Frameworks com Django i Flask permeten construir aplicacions modernes amb menys codi i major seguretat. Aquest projecte utilitza Django per crear un blog complet amb posts, autors, etiquetes i sistema de navegació dinàmica.",
+      "date": "2025-05-27",
+      "author": 3,
+      "tags": [1, 3]
+    }
+  }
+]

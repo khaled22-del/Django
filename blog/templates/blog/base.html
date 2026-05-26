@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+</head>
+
+<body>
+
+<nav>
+
+    <ul>
+
+        <li>
+            <a href="{% url 'starting-page' %}">
+                INICI
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'posts-page' %}">
+                POSTS
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'authors-page' %}">
+                AUTORS
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'tags-page' %}">
+                TAGS
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+</nav>
+
+{% block content %}
+{% endblock %}
+
+<footer>
+
+    <p>
+        © 2024 Copyright: Blog de Django-M3-UF6 - Khaled Nahal Berraha
+    </p>
+
+</footer>
+
+</body>
+</html>

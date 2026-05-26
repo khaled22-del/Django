@@ -1,0 +1,43 @@
+{% extends "blog/base.html" %}
+
+{% block title %}
+Authors
+{% endblock %}
+
+{% block content %}
+
+<section id="latest-posts">
+
+    <h1>Els nostres autors</h1>
+
+    <div class="posts-container">
+
+        {% for author in authors %}
+
+            <div class="post">
+
+                <div class="post-content">
+
+                    <h2>
+                        {{ author.first_name }} {{ author.last_name }}
+                    </h2>
+
+                    <p>
+                        {{ author.email }}
+                    </p>
+
+                    <a href="{% url 'author-detail-page' author.id %}">
+                        Veure perfil
+                    </a>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

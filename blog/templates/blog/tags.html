@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %}
+
+{% block title %}
+Tags
+{% endblock %}
+
+{% block content %}
+
+<section id="tags-page">
+
+    <h1>Etiquetes</h1>
+
+    <div class="tags-container">
+
+        {% for tag in tags %}
+
+            <a
+                href="{% url 'tag-posts-page' tag.caption %}"
+                class="tag"
+            >
+                {{ tag.caption }}
+            </a>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

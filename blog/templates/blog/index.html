@@ -1,0 +1,38 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}
+Blog M3-UF6-DJANGO
+{% endblock %}
+
+{% block content %}
+
+<section id="welcome">
+
+    <img src="{% static 'blog/images/django1.jpeg' %}" alt="">
+
+    <div class="welcome-text">
+        <h1>Benvingut al Blog M3 - UF6</h1>
+
+        <p>
+            Aquest és el projecte d'aprenentatge M3-UF6 basat en Django
+        </p>
+    </div>
+
+</section>
+
+<section id="latest-posts">
+
+    <h2>Darrers Posts</h2>
+
+    <div class="posts-container">
+
+        {% for post in posts %}
+            {% include "blog/includes/post.html" %}
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

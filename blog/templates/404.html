@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+
+{% block title %}
+404
+{% endblock %}
+
+{% block content %}
+
+<section style="text-align:center; margin:5rem;">
+
+    <h1>Error 404</h1>
+
+    <p>
+        La pàgina no existeix
+    </p>
+
+    <a href="{% url 'starting-page' %}">
+        Tornar a l'inici
+    </a>
+
+</section>
+
+{% endblock %}
