@@ -1,6 +1,9 @@
 from django.urls import path
 from . import views
-
+"""
+Arxiu de rutes del blog.
+Defineix totes les URLs del projecte.
+"""
 urlpatterns = [
     path('', views.starting_page, name='starting-page'),
     path('posts', views.posts, name='posts-page'),

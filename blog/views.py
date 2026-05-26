@@ -3,6 +3,9 @@ from .models import Post, Author, Tag
 
 
 def starting_page(request):
+    """
+    Mostra la pàgina principal amb els 3 darrers posts.
+    """
 
     latest_posts = Post.objects.all().order_by("-date")[:3]
 
@@ -12,6 +15,9 @@ def starting_page(request):
 
 
 def posts(request):
+    """
+    Mostra tots els posts ordenats per data descendent.
+    """
 
     all_posts = Post.objects.all().order_by("-date")
 
@@ -21,6 +27,9 @@ def posts(request):
 
 
 def post_detail(request, slug):
+    """
+    Mostra el detall d'un post concret utilitzant el slug.
+    """
 
     identified_post = get_object_or_404(Post, slug=slug)
 
@@ -30,6 +39,9 @@ def post_detail(request, slug):
 
 
 def authors(request):
+    """
+    Mostra el llistat de tots els autors.
+    """
 
     all_authors = Author.objects.all()
 
@@ -39,6 +51,9 @@ def authors(request):
 
 
 def author_detail(request, id):
+    """
+    Mostra el detall d'un autor i els seus posts.
+    """
 
     author = get_object_or_404(Author, id=id)
 
@@ -48,6 +63,9 @@ def author_detail(request, id):
 
 
 def tags(request):
+    """
+    Mostra totes les tags disponibles.
+    """
 
     all_tags = Tag.objects.all()
 
@@ -57,6 +75,9 @@ def tags(request):
 
 
 def tag_posts(request, tag):
+    """
+    Mostra tots els posts relacionats amb una tag concreta.
+    """
 
     selected_tag = get_object_or_404(Tag, caption=tag)
 
