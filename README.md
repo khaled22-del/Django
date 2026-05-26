@@ -42,33 +42,85 @@ https://khaled22-del.github.io/Django/
 
 ```bash
 git clone https://github.com/khaled22-del/Django.git
+```
 
-Entrar a la carpeta del projecte
+---
+
+## Entrar a la carpeta del projecte
+
+```bash
 cd Django
-Crear un entorn virtual
-Windows
+```
+
+---
+
+## Crear un entorn virtual
+
+### Windows
+
+```bash
 python -m venv venv
-Linux o Mac
+```
+
+### Linux o Mac
+
+```bash
 python3 -m venv venv
-Activar l’entorn virtual
-Windows
+```
+
+---
+
+## Activar l’entorn virtual
+
+### Windows
+
+```bash
 venv\Scripts\activate
-Linux o Mac
+```
+
+### Linux o Mac
+
+```bash
 source venv/bin/activate
-Instal·lar dependències
+```
+
+---
+
+## Instal·lar dependències
+
+```bash
 pip install django
-Executar migracions
+```
+
+---
+
+## Executar migracions
+
+```bash
 python manage.py migrate
-Execució del projecte
+```
+
+---
+
+# Execució del projecte
 
 Per executar el servidor localment:
 
+```bash
 python manage.py runserver
+```
 
 Després es podrà accedir al projecte des del navegador amb la següent URL:
 
+```text
 http://127.0.0.1:8000/
-Estructura del projecte
+```
+
+---
+
+# Estructura del projecte
+
+```text
 Django/
 │
 ├── blog/
@@ -94,23 +146,35 @@ Django/
 ├── generate_docs.py
 ├── manage.py
 └── README.md
-Funcionalitats principals
-Creació i visualització de posts
-Relació entre autors i publicacions
-Sistema d’etiquetes
-Panell d’administració de Django
-Navegació entre pàgines
-Documentació automàtica amb Pydoc
-Publicació automàtica amb GitHub Pages
-Tecnologies utilitzades
-Python
-Django
-HTML
-CSS
-Bootstrap
-GitHub Actions
-GitHub Pages
-Pydoc
-Autor
+```
+
+---
+
+# Funcionalitats principals
+
+- Creació i visualització de posts
+- Relació entre autors i publicacions
+- Sistema d’etiquetes
+- Panell d’administració de Django
+- Navegació entre pàgines
+- Documentació automàtica amb Pydoc
+- Publicació automàtica amb GitHub Pages
+
+---
+
+# Tecnologies utilitzades
+
+- Python
+- Django
+- HTML
+- CSS
+- Bootstrap
+- GitHub Actions
+- GitHub Pages
+- Pydoc
+
+---
+
+# Autor
 
 Projecte desenvolupat per Khaled.
