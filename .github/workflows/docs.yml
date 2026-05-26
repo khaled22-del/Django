@@ -26,15 +26,34 @@ jobs:
         python -m pip install --upgrade pip
         pip install django pillow
 
-    - name: Generate documentation
+    - name: Configure Django
+      run: |
+        export DJANGO_SETTINGS_MODULE=my_site.settings
+        python -c "import django; django.setup()"
+
+    - name: Generate Pydoc
+      env:
+        DJANGO_SETTINGS_MODULE: my_site.settings
       run: |
         mkdir docs
 
         python -m pydoc -w manage
         mv manage.html docs/index.html
 
+        python -m pydoc -w blog.models
+        mv blog.models.html docs/
+
+        python -m pydoc -w blog.views
+        mv blog.views.html docs/
+
+        python -m pydoc -w blog.urls
+        mv blog.urls.html docs/
+
         python -m pydoc -w blog.apps
         mv blog.apps.html docs/
+
+        python -m pydoc -w blog.admin
+        mv blog.admin.html docs/
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
