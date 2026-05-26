@@ -21,11 +21,14 @@ jobs:
       with:
         python-version: '3.12'
 
-    - name: Install Django
+    - name: Install dependencies
       run: |
         pip install django
+        pip install pillow
 
     - name: Generate Pydoc
+      env:
+        DJANGO_SETTINGS_MODULE: my_site.settings
       run: |
         mkdir docs
 
