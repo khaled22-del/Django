@@ -36,9 +36,6 @@ jobs:
         python -m pydoc -w blog.apps
         mv blog.apps.html docs/
 
-        python -m pydoc -w blog.urls
-        mv blog.urls.html docs/
-
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
