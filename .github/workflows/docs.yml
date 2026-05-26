@@ -36,9 +36,6 @@ jobs:
         python -m pydoc -w blog.apps
         mv blog.apps.html docs/
 
-        python -m pydoc -w blog.admin
-        mv blog.admin.html docs/
-
         python -m pydoc -w blog.urls
         mv blog.urls.html docs/
 
