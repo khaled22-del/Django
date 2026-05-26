@@ -1,4 +1,4 @@
-name: Generate Pydoc Documentation
+name: Generate Django Documentation
 
 on:
   push:
@@ -21,24 +21,32 @@ jobs:
       with:
         python-version: '3.12'
 
-    - name: Install Django
+    - name: Install dependencies
       run: |
-        pip install django
+        python -m pip install --upgrade pip
+        pip install django django-extensions pillow
 
-    - name: Generate Pydoc
+    - name: Generate documentation
+      env:
+        DJANGO_SETTINGS_MODULE: my_site.settings
       run: |
         mkdir docs
 
-        pydoc -w manage
+        python manage.py shell -c "import django; django.setup()"
+
+        python -m pydoc -w manage
         mv manage.html docs/index.html
 
-        pydoc -w blog.models
+        python -m pydoc -w blog.apps
+        mv blog.apps.html docs/
+
+        python -m pydoc -w blog.models
         mv blog.models.html docs/
 
-        pydoc -w blog.views
+        python -m pydoc -w blog.views
         mv blog.views.html docs/
 
-        pydoc -w blog.urls
+        python -m pydoc -w blog.urls
         mv blog.urls.html docs/
 
     - name: Deploy to GitHub Pages
