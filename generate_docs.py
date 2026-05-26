@@ -4,6 +4,7 @@ utilizando Pydoc y Django.
 """
 
 import os
+import shutil
 import django
 import pydoc
 
@@ -14,7 +15,7 @@ django.setup()
 # Crear carpeta docs
 os.makedirs("docs", exist_ok=True)
 
-# Generar documentación
+# Lista de módulos
 modules = [
     "manage",
     "blog.models",
@@ -24,18 +25,70 @@ modules = [
     "blog.admin",
 ]
 
+# CSS personalizado
+custom_css = """
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 20px;
+    color: #111827;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+td, th {
+    padding: 10px;
+    border: 1px solid #d1d5db;
+}
+
+.heading {
+    background-color: #1f2937 !important;
+    color: white !important;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+</style>
+"""
+
+# Generar documentación
 for module in modules:
     pydoc.writedoc(module)
 
-# Mover archivos HTML a docs
+# Modificar HTML y moverlos a docs
 for file in os.listdir():
     if file.endswith(".html"):
-        os.rename(file, f"docs/{file}")
+
+        # Leer contenido
+        with open(file, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        # Insertar CSS antes de </head>
+        content = content.replace("</head>", f"{custom_css}</head>")
+
+        # Guardar cambios
+        with open(file, "w", encoding="utf-8") as f:
+            f.write(content)
+
+        # Mover archivo a docs
+        shutil.move(file, f"docs/{file}")
 
 # Crear página principal personalizada
 with open("docs/index.html", "w", encoding="utf-8") as f:
     f.write("""
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -60,10 +113,6 @@ with open("docs/index.html", "w", encoding="utf-8") as f:
             text-align: center;
         }
 
-        h1 {
-            margin: 0;
-        }
-
         .container {
             width: 80%;
             margin: auto;
@@ -80,7 +129,7 @@ with open("docs/index.html", "w", encoding="utf-8") as f:
 
         .card a {
             text-decoration: none;
-            color: #1f2937;
+            color: #111827;
             font-size: 20px;
             font-weight: bold;
         }
