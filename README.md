@@ -1,5 +1,3 @@
-# Django
+## Documentació Pydoc
 
-## Documentació
-
-https://khaled22-del.github.io/Django/
+- [Pydoc](https://khaled22-del.github.io/Django/)
